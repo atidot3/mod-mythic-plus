@@ -113,8 +113,6 @@ bool MythicPlus::EligibleDamageTarget(Unit* target)
 
 bool MythicPlus::IsCreatureEligible(Creature* creature)
 {
-    CreatureTemplate const * cInfo = creature->GetCreatureTemplate();
-
     if (!creature) {
         return false;
     }
@@ -461,7 +459,6 @@ int32 MythicPlus::ScaleHealSpell(SpellInfo const * spellInfo, uint32 heal, MpCre
     auto effects = spellInfo->GetEffects();
     for (uint8 i = 0; i < effects.size(); ++i)
     {
-        SpellEffectInfo effect = effects[i];
         MpLogger::debug(" >>> Spell {} effect {} value: {} by creature {}", spellInfo->SpellName[i], effects[i].Effect, heal, creature->GetName());
     }
 
