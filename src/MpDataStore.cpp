@@ -140,9 +140,6 @@ void MpDataStore::RemoveGroupData(Group *group) {
 void MpDataStore::AddPlayerData(ObjectGuid guid, MpPlayerData* pd) {
     MpLogger::debug("AddPlayerData for player {}", guid.GetCounter());
     _playerData->emplace(guid, pd);
-
-    // get the player
-    Player* player = ObjectAccessor::FindPlayer(guid);
 }
 
 void MpDataStore::RemovePlayerData(ObjectGuid guid) {
@@ -224,6 +221,7 @@ MpScaleFactor MpDataStore::GetScaleFactor(int32 mapId, int32 difficulty) const {
     return MpScaleFactor{
         .dmgBonus = 3,
         .healthBonus = 2,
+        .spellBonus = 3,
         .maxDamageBonus = 30
     };
 }
